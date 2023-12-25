@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'Reuse_card.dart';
+import 'Reuse_icon.dart';
+
 
 const botomContainerButton = 70.0;
 const activeCardColor = Color(0xFF1D1E33);
@@ -26,20 +29,24 @@ class _InputPageState extends State<InputPage> {
               children: [
                 Expanded(
                   child: ReUseCard(
-                    childCard: ReUseIcon(icon: FontAwesomeIcons.mars,label: "MALE"),
+                    childCard:
+                        ReUseIcon(icon: FontAwesomeIcons.mars, label: "MALE"),
                     colour: activeCardColor,
                   ),
                 ),
                 Expanded(
                   child: ReUseCard(
-                    colour: activeCardColor, childCard: ReUseIcon(icon: FontAwesomeIcons.mars,label: "MALE"),
+                    colour: activeCardColor,
+                    childCard:
+                        ReUseIcon(icon: FontAwesomeIcons.venus, label: "FEMALE"),
                   ),
                 ),
               ],
             )),
             Expanded(
               child: ReUseCard(
-                colour: activeCardColor, childCard: Text(""),
+                colour: activeCardColor,
+                childCard: Text(""),
               ),
             ),
             Expanded(
@@ -47,12 +54,14 @@ class _InputPageState extends State<InputPage> {
               children: [
                 Expanded(
                   child: ReUseCard(
-                    colour: activeCardColor, childCard: Text(""),
+                    colour: activeCardColor,
+                    childCard: Text(""),
                   ),
                 ),
                 Expanded(
                   child: ReUseCard(
-                    colour: activeCardColor, childCard: Text(""),
+                    colour: activeCardColor,
+                    childCard: Text(""),
                   ),
                 ),
               ],
@@ -68,43 +77,6 @@ class _InputPageState extends State<InputPage> {
   }
 }
 
-class ReUseIcon extends StatelessWidget {
-  ReUseIcon({required this.icon, required this.label});
 
-  final IconData icon;
-  final String label;
 
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Icon(
-          icon,
-          size: 80.0,
-        ),
-       SizedBox(height: 15.0,),
-        Text(label, style: TextStyle(fontSize: 15.0, color: Colors.white),),
-      ],
-    );
-  }
-}
 
-class ReUseCard extends StatelessWidget {
-  ReUseCard({required this.colour,required this.childCard});
-
-  final Color colour;
-  final Widget childCard;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: childCard,
-      margin: EdgeInsets.all(15.0),
-      decoration: BoxDecoration(
-        color: colour,
-        borderRadius: BorderRadius.circular(10.0),
-      ),
-    );
-  }
-}
