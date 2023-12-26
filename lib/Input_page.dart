@@ -22,27 +22,6 @@ class _InputPageState extends State<InputPage> {
 
      Gender? selectedGender;
 
-  // Color maleColor = inActiveColor;
-  // Color femaleColor = inActiveColor;
-  //
-  // void updateColor(selectedGender){
-  //     if(selectedGender==Gender.male){
-  //       if(maleColor == inActiveColor){
-  //         maleColor = activeCardColor;
-  //         femaleColor = inActiveColor;
-  //       }else{
-  //         maleColor = inActiveColor;
-  //       }
-  //     }if(selectedGender==Gender.female){
-  //       if(femaleColor== inActiveColor){
-  //         femaleColor = activeCardColor;
-  //         maleColor = inActiveColor;
-  //       }else{
-  //         femaleColor = inActiveColor;
-  //       }
-  //     }
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,37 +34,34 @@ class _InputPageState extends State<InputPage> {
                 child: Row(
               children: [
                 Expanded(
-                  child: GestureDetector(
-                    onTap: (){
-                     setState(() {
-                       selectedGender = Gender.male;
-                     });
+                  child: ReUseCard(
+                    onPress: (){
+                      setState(() {
+                        selectedGender = Gender.male;
+                      });
                     },
-                    child: ReUseCard(
-                      childCard:
-                          ReUseIcon(icon: FontAwesomeIcons.mars, label: "MALE"),
-                      colour: selectedGender == Gender.male ? activeCardColor : inActiveColor,
-                    ),
+                    childCard:
+                        ReUseIcon(icon: FontAwesomeIcons.mars, label: "MALE"),
+                    colour: selectedGender == Gender.male ? activeCardColor : inActiveColor,
                   ),
                 ),
                 Expanded(
-                  child: GestureDetector(
-                    onTap: (){
+                  child: ReUseCard(
+                    onPress: (){
                       setState(() {
                         selectedGender = Gender.female;
                       });
                     },
-                    child: ReUseCard(
-                      colour: selectedGender == Gender.female ? activeCardColor : inActiveColor,
-                      childCard:
-                          ReUseIcon(icon: FontAwesomeIcons.venus, label: "FEMALE"),
-                    ),
+                    colour: selectedGender == Gender.female ? activeCardColor : inActiveColor,
+                    childCard:
+                        ReUseIcon(icon: FontAwesomeIcons.venus, label: "FEMALE"),
                   ),
                 ),
               ],
             )),
             Expanded(
               child: ReUseCard(
+                onPress: (){},
                 colour: activeCardColor,
                 childCard: Text(""),
               ),
@@ -95,12 +71,14 @@ class _InputPageState extends State<InputPage> {
               children: [
                 Expanded(
                   child: ReUseCard(
+                    onPress: (){},
                     colour: activeCardColor,
                     childCard: Text(""),
                   ),
                 ),
                 Expanded(
                   child: ReUseCard(
+                    onPress: (){},
                     colour: activeCardColor,
                     childCard: Text(""),
                   ),
