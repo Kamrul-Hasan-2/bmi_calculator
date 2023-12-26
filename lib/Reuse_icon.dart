@@ -1,6 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'constants.dart';
+
+
+
 class ReUseIcon extends StatelessWidget {
   ReUseIcon({required this.icon, required this.label});
 
@@ -21,7 +25,7 @@ class ReUseIcon extends StatelessWidget {
         ),
         Text(
           label,
-          style: TextStyle(fontSize: 15.0, color: Colors.white),
+          style:kLevelTextStyle,
         ),
       ],
     );
