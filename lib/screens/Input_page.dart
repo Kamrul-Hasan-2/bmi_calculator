@@ -1,9 +1,12 @@
-import 'package:bmi_calculator/result_page.dart';
+import 'package:bmi_calculator/bmi_brain.dart';
+import 'package:bmi_calculator/screens/result_page.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'Reuse_card.dart';
-import 'Reuse_icon.dart';
-import 'constants.dart';
+import '../componants/Reuse_card.dart';
+import '../componants/Reuse_icon.dart';
+import '../componants/bottom_button.dart';
+import '../componants/buttom_icon_button.dart';
+import '../constants.dart';
 
 enum Gender {
   male,
@@ -202,42 +205,20 @@ class _InputPageState extends State<InputPage> {
                 ),
               ],
             )),
-            GestureDetector(
-              onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => ResultPage(),));
-              },
-              child: Container(
-                child: Center(child: Text('CALCULATE', style: kLargeButtonText,)),
-                color: kBotomContaineerButton,
-                margin: EdgeInsets.only(top: 10.0),
-                width: double.infinity,
-                height: kBotomContainerButton,
-              ),
-            ),
+            BottomButton(text: 'CALCULATE',
+              onTap:
+                (){
+              BMICalculate calc = BMICalculate(height: height, weight: weight);
+
+              Navigator.push(context, MaterialPageRoute(builder: (context) => ResultPage(
+                bmiResult: calc.calculate(),
+                resultText: calc.getResult(),
+                interpretation: calc.getInterpretation(),
+              ),));
+            },),
+
           ],
         ));
   }
 }
 
-class RoundIconButton extends StatelessWidget {
-
-  RoundIconButton({required this.icon, required this.onPressed});
-  
-  final IconData icon;
-  final void Function()  onPressed;
-
-  @override
-  Widget build(BuildContext context) {
-    return RawMaterialButton(
-      onPressed: onPressed,
-      child: Icon(icon),
-      elevation: 0.0,
-      constraints: BoxConstraints.tightFor(
-        height: 56.0,
-        width: 56.0,
-      ),
-      shape: CircleBorder(),
-      fillColor: Colors.grey,
-    );
-  }
-}

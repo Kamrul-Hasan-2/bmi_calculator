@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'Input_page.dart';
+import 'screens/Input_page.dart';
 
 void main() {
   runApp(MyApp());

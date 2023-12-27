@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
 class ReUseCard extends StatelessWidget {
-  ReUseCard({required this.colour, required this.childCard,required this.onPress});
+  ReUseCard({required this.colour,required this.childCard,required this.onPress});
 
   final Color colour;
   final Widget childCard;
