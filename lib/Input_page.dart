@@ -207,7 +207,7 @@ class _InputPageState extends State<InputPage> {
                 Navigator.push(context, MaterialPageRoute(builder: (context) => ResultPage(),));
               },
               child: Container(
-                child: Text('CALCULATOR'),
+                child: Center(child: Text('CALCULATE', style: kLargeButtonText,)),
                 color: kBotomContaineerButton,
                 margin: EdgeInsets.only(top: 10.0),
                 width: double.infinity,
